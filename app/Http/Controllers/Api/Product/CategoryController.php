@@ -12,7 +12,7 @@ class CategoryController extends Controller
     {}
 
     /**
-     * Route(GET):: /api/categories
+     * Route:: GET: /api/categories
      *
      * @return JsonResponse
      */
