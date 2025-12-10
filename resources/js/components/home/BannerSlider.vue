@@ -4,7 +4,7 @@
             :slides-per-view="slidesPerView"
             :space-between="20"
             :pagination="{ clickable: true }"
-            :navigation="true"
+            :navigation="{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }"
             autoplay
         >
             <swiper-slide v-for="product in products" :key="product.id">
@@ -13,10 +13,13 @@
                         :src="product.image"
                         :alt="product.name"
                         class="product-image"
+                        loading="lazy"
                     />
                 </div>
             </swiper-slide>
         </swiper>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </div>
 </template>
 
@@ -86,5 +89,51 @@ export default {
     .product-price {
         font-size: 1rem;
         color: #888;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 50px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .swiper-button-next {
+        display: none;
+        right: 10px;
+    }
+
+    .swiper-button-prev {
+        display: none;
+        left: 10px;
+    }
+
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+        .swiper-button-next,
+        .swiper-button-prev {
+            width: 40px;
+            height: 40px;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 20px;
+        }
     }
 </style>
