@@ -33,7 +33,7 @@ export default {
 
 <style scoped>
     .home-page {
-        margin: 0 80px;
+        margin: 0 80px 400px 80px;
         padding: 20px 0;
     }
     .category-item {
